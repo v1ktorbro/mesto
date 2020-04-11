@@ -1,0 +1,29 @@
+.btn-image_plus {
+  background-image: url(../../../images/btn-plus.svg);
+  background-size: contain;
+  height: 22px;
+  width: 22px;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .btn-image_plus {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .btn-image_plus {
+    height: 11px;
+    width: 11px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .btn-image_plus {
+    height: 16px;
+    width: 16px;
+  }
+}

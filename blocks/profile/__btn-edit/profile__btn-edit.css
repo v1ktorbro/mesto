@@ -1,0 +1,16 @@
+.profile__btn-edit {
+  margin-top: 1.5vw; /* or 19px */
+  width: 1.87vw; /* 24px */
+  height: 1.87vw; /* 24px */
+  background-color: #000000;
+  margin-left: 1.32vw; /* 17px */
+  display: flex;
+  padding: 0;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__btn-edit {
+    width: 18px;
+    height: 18px;
+  }
+}

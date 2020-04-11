@@ -1,0 +1,15 @@
+.btn-image_edit {
+  background-image: url(../../../images/btn-edit.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 0.78vw; /* 10px */
+  height: 0.78vw; /* 10px */
+  margin: auto;
+}
+
+@media screen and (max-width: 520px) {
+  .btn-image_edit {
+    height: 8px;
+    width: 8px;
+  }
+}

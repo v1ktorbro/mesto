@@ -1,0 +1,10 @@
+.btn-image_like {
+  background-color: #fff;
+  background-image: url(../../../images/btn-like.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 19px;
+  width: 21px;
+ /*  height: 1.43vw; 18.13px
+  width: 1.62vw; 20.76px */
+}

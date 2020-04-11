@@ -1,0 +1,28 @@
+@import url(./__btn-like/card__btn-like.css);
+@import url(./__title/card__title.css);
+@import url(./__image/card__image.css);
+@import url(./__info/card__info.css);
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  max-height: 361px;
+}
+
+@media screen and (max-width: 650px) {
+  .card {
+    max-width: 240px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .card {
+    max-width: 187px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    max-width: 282px;
+  }
+}

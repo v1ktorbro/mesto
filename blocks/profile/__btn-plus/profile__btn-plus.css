@@ -1,0 +1,25 @@
+.profile__btn-plus {
+  background-color: #000000;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  width: 12.6vw; /* or 150px */
+  height: 3.9vw; /* or 50px */
+  margin-left: auto;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__btn-plus {
+    margin-top: 36px;
+    width: 382px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile__btn-plus {
+    width: 87.5vw;
+    height: 16vw;
+    margin: 11.3vw auto 0;
+  }
+}

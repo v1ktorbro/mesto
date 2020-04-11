@@ -1,0 +1,9 @@
+.profile__change-elem {
+  display: flex;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__change-elem {
+    align-items: center;
+  }
+}
