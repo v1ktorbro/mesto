@@ -1,0 +1,15 @@
+.popap__container {
+	position: relative;
+	 /* этот маржин дает прозрачность  */
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* margin-left: -215px; */
+	top: 50%;
+	/* margin-top: -165px; */
+	display: flex;
+	flex-direction: column;
+	width: 430px;
+	height: 330px;
+	background-color: #fff;
+	border-radius: 10px;
+}

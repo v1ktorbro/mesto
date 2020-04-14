@@ -1,0 +1,16 @@
+@import url(./_opened/popap_opened.css);
+@import url(./__container/popap__container.css);
+@import url(./__close/popap__close.css);
+@import url(./__title/popap__title.css);
+@import url(./__input-name/popap__input-name.css);
+@import url(./__input-signature/popap__input-signature.css);
+@import url(./__input-save/popap__input-save.css);
+@import url(./__text-color/popap__text-color.css);
+
+.popap {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 10;
+}

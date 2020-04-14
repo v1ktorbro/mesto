@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   height: 19px;
   width: 21px;
- /*  height: 1.43vw; 18.13px
+  /*  height: 1.43vw; 18.13px
   width: 1.62vw; 20.76px */
+  transition: all 0.3s ease 0s;
 }
