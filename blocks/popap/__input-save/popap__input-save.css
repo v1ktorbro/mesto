@@ -5,3 +5,8 @@
 	height: 3.92vw;
 	margin: 48px auto 36.5px;
 }
+
+.popap__input-save:hover {
+  opacity: .6;
+  transition: opacity 200ms linear;
+}

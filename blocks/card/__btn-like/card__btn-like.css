@@ -2,3 +2,6 @@
   border: none;
   padding: 0;
 }
+.card__btn-like:hover {
+	transform: scale(1.3);
+}
