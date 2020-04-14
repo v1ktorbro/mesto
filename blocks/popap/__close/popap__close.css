@@ -1,0 +1,24 @@
+.popap__close {
+	position: absolute;
+	right: -63px;
+	top: -38px;
+	width: 41px;
+	height: 41px;
+	opacity: 1;
+	}
+	.popap__close:hover {
+	opacity: 0.6;
+	}
+	.popap__close:before, .popap__close:after {
+	position: absolute;
+	content: ' ';
+	height: 41px;
+	width: 3px;
+	background-color: #fff;
+	}
+	.popap__close:before {
+	transform: rotate(45deg);
+	}
+	.popap__close:after {
+	transform: rotate(-45deg);
+	}
