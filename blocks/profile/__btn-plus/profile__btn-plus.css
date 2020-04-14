@@ -23,3 +23,8 @@
     margin: 11.3vw auto 0;
   }
 }
+
+.profile__btn-plus:hover {
+  opacity: .6;
+  transition: opacity 200ms linear;
+}
