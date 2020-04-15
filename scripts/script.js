@@ -1,7 +1,6 @@
 const popap = document.querySelector('.popap');
 const popapOpen = document.querySelector('.profile__btn-edit');
 const popapClose = popap.querySelector('.popap__close');
-const btnSave = popap.querySelector('.popap__input-save');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__signature');
 // Находим форму в DOM
@@ -26,15 +25,18 @@ popapOpen.addEventListener('click', popapOn);
 popapClose.addEventListener('click', popapOff);
 
 // создаем ф-ю, кот-я будет отвечает за изменение имени и информации о себе
-function formEditProfile() {
+function formSubmitHandler (evt) {
+    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+                                                // Так мы можем определить свою логику отправки.
+                                                // О том, как это делать, расскажем позже.
+
     //на главной "имя" и "о себе" будут принимать значения, которые пропишут в поп-ап окне
   	profileName.innerHTML = `${nameInput.value}`;
   	profileJob.innerHTML = `${jobInput.value}`;
 
     popapOff();
 }
-// функция срабатывает тогда, когда в поп-ап окне нажимается кнопка "Сохранить"
-btnSave.addEventListener('click', formEditProfile);
+formElement.addEventListener('submit', formSubmitHandler);
 
 function loadProfileInPopap() {
   nameInput.value = profileName.textContent;
