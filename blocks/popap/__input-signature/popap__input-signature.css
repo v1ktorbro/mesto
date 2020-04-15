@@ -1,10 +1,25 @@
 .popap__input-signature {
 	width: 27vw;
 	height: 28px;
-	margin: 30px auto 0;
-	font-size: 14px;
-	line-height: 17px;
+  margin: 0 auto 3.8vw;
+  font-size: 1.1vw; /* 14px */
+	line-height: 1.33vw; /* 17px */
 	border-top: 1px;
 	border-left: none;
 	border-right: none;
+}
+
+@media screen and (max-width: 1050px) {
+  .popap__input-signature {
+    min-width: 281px;
+    min-height: 35px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__input-signature {
+    min-width: 250px;
+    font-size: 12px;
+  }
 }

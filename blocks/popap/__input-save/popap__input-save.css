@@ -1,12 +1,26 @@
 .popap__input-save {
 	border-radius: 2px;
 	background-color: #000;
-	width: 27vw;
-	height: 3.92vw;
-	margin: 48px auto 36.5px;
+	width: 28vw;
+	height: 5.4vw; /* 3.92 */
+	margin: 0 auto 2.86vw;
 }
 
 .popap__input-save:hover {
   opacity: .6;
   transition: opacity 200ms linear;
+}
+
+@media screen and (max-width: 1050px) {
+  .popap__input-save {
+    min-width: 281px;
+    min-height: 45px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__input-save {
+    min-width: 250px;
+    min-height: 35px;
+  }
 }

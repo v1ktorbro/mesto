@@ -1,8 +1,32 @@
 .popap__title {
-	font-weight: 900;
-	font-style: 24px;
-	line-height: 29px;
+  font-weight: 900;
+  font-size: 1.9vw; /* 24px */
+	line-height: 2.3vw; /* 29px */
 	margin-left: 2.8vw;
-	margin-top: 2.7vw;
-	color: #000;
+  margin-top: 2.7vw;
+  margin-bottom: 4.2vw;
+  color: #000;
+  max-width: 358px;
+}
+
+@media screen and (max-width: 1279px) {
+  .popap__title {
+    margin: 30px auto 20px 57px;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .popap__title {
+    font-size: 22px;
+    line-height: 24px;
+    margin: 35px auto 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__title {
+    font-size: 20px;
+    line-height: 22px;
+    margin: 30px auto 0;
+  }
 }

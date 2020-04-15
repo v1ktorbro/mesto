@@ -1,15 +1,28 @@
 .popap__container {
 	position: relative;
-	 /* этот маржин дает прозрачность  */
 	left: 50%;
-	transform: translate(-50%, -50%);
-	/* margin-left: -215px; */
 	top: 50%;
-	/* margin-top: -165px; */
+	transform: translate(-50%, -50%);
 	display: flex;
 	flex-direction: column;
-	width: 430px;
-	height: 330px;
+	max-width: 430px;
+	max-height: 330px;
 	background-color: #fff;
 	border-radius: 10px;
+}
+
+@media screen and (max-width: 1050px) {
+  .popap__container {
+    min-width: 400px;
+    min-height: 300px;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__container {
+    min-width: 282px;
+    min-height: 282px;
+    justify-content: space-evenly;
+  }
 }
