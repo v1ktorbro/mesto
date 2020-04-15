@@ -19,7 +19,7 @@
 
 Разработка ведется в [IDE Visual Studio Code](https://visualstudio.microsoft.com/ru/vs/), а так же DevTools от [Firefox Browser Developer Edition](https://www.mozilla.org/ru/firefox/developer/).
 
-***О проеке**
+**О проеке**
 
 Проект "Mesto Russia" представляет собой уровень владения автора умением работать с HTML, CSS, адаптивной(резиновой) верстки и базой JavaScript. Проект будет развиваться и дополняться новыми интерактивными элементами в ходе углубления изучения языка программирования - JS.
 
