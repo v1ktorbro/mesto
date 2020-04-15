@@ -1,17 +1,31 @@
-# Проект 4: Место
+# Проект 4: Место Russia
 
-### Обзор
+## Файловая структура
+Файловая структура проекта была создана по структуре [БЭМ Nested](https://ru.bem.info/methodology/filestructure/). Архив состоит из следующих файлов и катологов:
 
-* Figma
-* Картинки
+        bloks/          блоки страниц
+        fonts/          шрифты
+        images/         картинки, логотипы, бэкграунды
+        pages/          index.css
+        scripts/        скрипты
+        vendor/         папка для сторонних стилей
+        index.html
+        README.md
+        .editorconfig
+        .nojekyll
 
-**Figma**
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+**Разработка**
 
-**Картинки**
+Разработка ведется в [IDE Visual Studio Code](https://visualstudio.microsoft.com/ru/vs/), а так же DevTools от [Firefox Browser Developer Edition](https://www.mozilla.org/ru/firefox/developer/).
 
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
+***О проеке**
 
-Удачи!
+Проект "Mesto Russia" представляет собой уровень владения автора умением работать с HTML, CSS, адаптивной(резиновой) верстки и базой JavaScript. Проект будет развиваться и дополняться новыми интерактивными элементами в ходе углубления изучения языка программирования - JS.
+
+**Авторы**
+* **Яндекс.Практикум** *гуру и наставник* - [Yandex.Practikum](https://praktikum.yandex.ru)
+* **Виктор Абросимов** *писарь* - [linkedin](https://www.linkedin.com/in/victor-abrosimov-631b6b1a4/)
+
+
+
