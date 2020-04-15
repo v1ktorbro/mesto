@@ -22,3 +22,20 @@
 	.popap__close:after {
 	transform: rotate(-45deg);
 	}
+
+@media screen and (max-width: 1050px) {
+  .popap__close {
+    right: -50px;
+	  top: -28px;
+  }
+
+  .popap__close:before, .popap__close:after {
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__close {
+    display: none;
+  }
+}

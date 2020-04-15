@@ -1,10 +1,27 @@
 .popap__input-name {
 	width: 27vw;
 	height: 28px;
-	margin: 54px auto 0;
-	font-size: 14px;
-	line-height: 17px;
+	margin: 0 auto 2.32vw;
+	font-size: 1.1vw; /* 14px */
+	line-height: 1.33vw; /* 17px */
 	border-top: 1px;
 	border-left: none;
 	border-right: none;
 }
+
+@media screen and (max-width: 1050px) {
+  .popap__input-name {
+    min-width: 281px;
+    min-height: 35px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__input-name {
+    min-width: 250px;
+    font-size: 12px;
+  }
+}
+
+
