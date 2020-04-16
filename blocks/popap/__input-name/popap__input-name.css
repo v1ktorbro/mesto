@@ -9,6 +9,12 @@
 	border-right: none;
 }
 
+@media screen and (min-width: 1280px) {
+  .popap__input-name {
+    margin-bottom: 25px;
+  }
+}
+
 @media screen and (max-width: 1050px) {
   .popap__input-name {
     min-width: 281px;

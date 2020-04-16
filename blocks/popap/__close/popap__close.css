@@ -4,7 +4,8 @@
 	top: -38px;
 	width: 41px;
 	height: 41px;
-	opacity: 1;
+  opacity: 1;
+  cursor: pointer;
 	}
 	.popap__close:hover {
 	opacity: 0.6;
@@ -36,6 +37,13 @@
 
 @media screen and (max-width: 500px) {
   .popap__close {
-    display: none;
+    top: 300px;
+    right: 50%;
+    margin-right: -22px;
+  }
+
+  .popap__close:before, .popap__close:after {
+    height: 20px;
+    border-radius: 40%;
   }
 }

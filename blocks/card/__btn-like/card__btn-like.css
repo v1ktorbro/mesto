@@ -1,6 +1,7 @@
 .card__btn-like {
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 .card__btn-like:hover {
 	transform: scale(1.3);

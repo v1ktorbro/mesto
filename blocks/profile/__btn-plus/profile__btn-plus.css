@@ -6,6 +6,8 @@
   width: 12.6vw; /* or 150px */
   height: 3.9vw; /* or 50px */
   margin-left: auto;
+  cursor: pointer;
+  outline: none;
 }
 
 @media screen and (max-width: 520px) {
