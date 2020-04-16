@@ -6,6 +6,8 @@
   margin-left: 1.32vw; /* 17px */
   display: flex;
   padding: 0;
+  cursor: pointer;
+  outline: none;
 }
 
 @media screen and (max-width: 520px) {

@@ -11,21 +11,21 @@
 	<title>Mesto Russia</title>
 </head>
 <body class="root">
-  <section class="popap popap_opened">
-		<form class="popap__container">
-			<span class="popap__close"></span>
-			<h2 class="popap__title">Редактировать профиль</h2>
-			<input type="text" class="popap__input-name" placeholder="Имя">
-			<input type="text" class="popap__input-signature" placeholder="О себе">
-			<button type="submit" class="popap__input-save">
-				<p class="popap__text-color">Сохранить</p>
-			</button>
-		</form>
-	</section>
   <header class="header">
     <a href="#" class="header__logo"></a>
   </header>
   <main class="content">
+    <section class="popap popap_opened">
+      <form class="popap__container">
+        <span class="popap__close"></span>
+        <h2 class="popap__title">Редактировать профиль</h2>
+        <input type="text" class="popap__input-name" placeholder="Имя">
+        <input type="text" class="popap__input-signature" placeholder="О себе">
+        <button type="submit" class="popap__input-save">
+          <p class="popap__text-color">Сохранить</p>
+        </button>
+      </form>
+    </section>
     <section class="profile">
       <img src="./images/zhak-iv-kusto.png" alt="Аватар" class="profile__avatar">
       <div class="profile__info">
@@ -46,7 +46,7 @@
       <div class="card">
         <img src="./images/karachaevsk.png" alt="Фото г.Карачаевск" class="card__image">
         <div class="card__info">
-          <h2 class="card__title">Карачаево-Черкесская республика</h2>
+          <h2 class="card__title">Карачаевск</h2>
           <button class="card__btn-like">
             <div class="btn-image btn-image_like"></div>
           </button>
@@ -100,7 +100,7 @@
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">© 2020. Абросимов Виктор</p>
+    <p class="footer__copyright">&copy; 2020. Абросимов Виктор</p>
   </footer>
   <script src="scripts/script.js"></script>
 </body>
