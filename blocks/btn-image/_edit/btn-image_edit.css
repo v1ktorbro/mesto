@@ -2,8 +2,8 @@
   background-image: url(../../../images/btn-edit.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 0.78vw; /* 10px */
-  height: 0.78vw; /* 10px */
+  width: 10px; 
+  height: 10px;
   margin: auto;
 }
 

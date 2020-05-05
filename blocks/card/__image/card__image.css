@@ -2,6 +2,7 @@
   border-radius: 10px 10px 0 0;
   width: 282px;
   height: 282px;
+  margin-bottom: 25px;
   transition: all 0.3s ease 0s;
 }
 
@@ -13,20 +14,20 @@
 @media screen and (max-width: 650px) {
   .card__image {
     max-width: 240px;
-    max-height: 240px;
+    height: 240px;
   }
 }
 
 @media screen and (max-width: 520px) {
   .card__image {
     max-width: 187px;
-    max-height: 187px;
+    height: 187px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .card__image {
     max-width: 282px;
-    max-height: 282px;
+    height: 282px;
   }
 }

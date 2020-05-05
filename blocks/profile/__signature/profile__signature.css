@@ -1,8 +1,8 @@
 .profile__signature {
   font-weight: normal;
-  font-size: 1.4vw; /* or 18px */
-  line-height: 1.72vw; /* or 22px */
-  margin: 1.25vw 0 0; /* or 16px */
+  font-size: 18px; 
+  line-height: 22px;
+  margin: 16px 0 0;
 }
 
 @media screen and (max-width: 900px) {

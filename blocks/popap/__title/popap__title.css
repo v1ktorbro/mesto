@@ -1,10 +1,10 @@
 .popap__title {
   font-weight: 900;
-  font-size: 1.9vw; /* 24px */
-	line-height: 2.3vw; /* 29px */
-	margin-left: 2.8vw;
-  margin-top: 2.7vw;
-  margin-bottom: 4.2vw;
+  font-size: 24px;
+	line-height: 29px;
+	margin-left: 36px;
+  margin-top: 34px;
+  margin-bottom: 54px;
   color: #000;
   max-width: 358px;
 }
@@ -27,6 +27,6 @@
   .popap__title {
     font-size: 20px;
     line-height: 22px;
-    margin: 30px auto 0;
+    margin: 15px auto 0;
   }
 }

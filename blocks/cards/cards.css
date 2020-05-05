@@ -1,5 +1,5 @@
 .cards {
-  margin-top: 3.9vw; /* 50px */
+  margin-top: 50px;
   display: grid;
   max-width: 282px;
   grid-template-columns: repeat(3, 1fr);

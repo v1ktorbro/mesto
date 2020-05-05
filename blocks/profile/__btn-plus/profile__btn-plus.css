@@ -3,12 +3,13 @@
   box-sizing: border-box;
   border: 2px solid #fff;
   border-radius: 2px;
-  width: 12.6vw; /* or 150px */
-  height: 3.9vw; /* or 50px */
+  width: 150px; 
+  height: 50px;
   margin-left: auto;
   cursor: pointer;
   outline: none;
 }
+
 
 @media screen and (max-width: 520px) {
   .profile__btn-plus {
