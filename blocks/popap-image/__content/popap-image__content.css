@@ -1,0 +1,39 @@
+.popap-image__content {
+  max-width: 816px;
+  max-height: 540px;
+}
+
+@media screen and (max-width: 900px) {
+  .popap-image__content {
+    max-width: 600px;
+    max-height: 450px;
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .popap-image__content {
+    max-width: 550px;
+    max-height: 375px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .popap-image__content {
+    max-width: 450px;
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .popap-image__content {
+    max-width: 450px;
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .popap-image__content {
+    max-width: 240px;
+  }
+}

@@ -1,11 +1,9 @@
 .btn-image_like {
-  background-color: #fff;
-  background-image: url(../../../images/btn-like.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
+  background: url(https://code.s3.yandex.net/web-code/dom/heart.svg) center no-repeat;
   height: 19px;
   width: 21px;
-  /*  height: 1.43vw; 18.13px
-  width: 1.62vw; 20.76px */
   transition: all 0.3s ease 0s;
+}
+.btn-image_like:hover {
+	transform: scale(1.3);
 }

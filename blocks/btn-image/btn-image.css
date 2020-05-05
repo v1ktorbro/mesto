@@ -1,3 +1,5 @@
 @import url(./_edit/btn-image_edit.css);
 @import url(./_plus/btn-image_plus.css);
 @import url(./_like/btn-image_like.css);
+@import url(./_delete/btn-image_delete.css);
+@import url(./_like/_active/btn-image_like_active.css);

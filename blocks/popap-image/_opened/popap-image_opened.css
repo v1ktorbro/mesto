@@ -1,5 +1,6 @@
-.popap_opened {
+.popap-image_opened {
   visibility: hidden;
   transition: opacity .5s linear;
   opacity: 0;
 }
+

@@ -1,0 +1,11 @@
+.btn-image_delete {
+  height: 19px;
+  width: 18px;
+  background: url(../../../images/btn-delete.svg) center no-repeat;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-image_delete:hover {
+  opacity: .6;
+	transform: scale(1.3);
+}
