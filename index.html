@@ -32,71 +32,40 @@
     </section>
 
     <section class="cards">
-      <div class="card">
-        <img src="./images/karachaevsk.png" alt="Фото г.Карачаевск" class="card__image">
-        <div class="card__info">
-          <h2 class="card__title">Карачаевск</h2>
-          <button class="card__btn-like">
-            <div class="btn-image btn-image_like"></div>
+      <template id="template-cards">
+        <div class="card">
+          <img src="" alt="" class="card__image">
+          <button class="card__btn-delete">
+            <div class="btn-image btn-image_delete"></div>
           </button>
+          <div class="card__info">
+            <h2 class="card__title"></h2>
+            <button class="card__btn-like">
+              <div class="btn-image btn-image_like"></div>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <img src="./images/mountain-elbrus.png" alt="Фото горы Эльбрус" class="card__image">
-        <div class="card__info">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <button class="card__btn-like">
-            <div class="btn-image btn-image_like"></div>
-          </button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="./images/dombai.png" alt="Фото Домбаи" class="card__image">
-        <div class="card__info">
-          <h2 class="card__title">Домбай</h2>
-          <button class="card__btn-like">
-            <div class="btn-image btn-image_like"></div>
-          </button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="./images/mountain-elbrus.png" alt="Фото горы Эльбрус" class="card__image">
-        <div class="card__info">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <button class="card__btn-like">
-            <div class="btn-image btn-image_like"></div>
-          </button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="./images/dombai.png" alt="Фото Домбаи" class="card__image">
-        <div class="card__info">
-          <h2 class="card__title">Домбай</h2>
-          <button class="card__btn-like">
-            <div class="btn-image btn-image_like"></div>
-          </button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="./images/karachaevsk.png" alt="Фото г.Карачаевск" class="card__image">
-        <div class="card__info">
-          <h2 class="card__title">Карачаево-Черкесская республика</h2>
-          <button class="card__btn-like">
-            <div class="btn-image btn-image_like"></div>
-          </button>
-        </div>
-      </div>
+      </template>
 	 </section>
 	 <section class="popap popap_opened">
+     <template id="template-popap">
       <form class="popap__container">
         <span class="popap__close"></span>
-        <h2 class="popap__title">Редактировать профиль</h2>
-        <input type="text" class="popap__input-name" placeholder="Имя">
-        <input type="text" class="popap__input-signature" placeholder="О себе">
+        <h2 class="popap__title"></h2>
+        <input type="text" class="popap__input-name" placeholder="">
+        <input type="text" class="popap__input-signature" placeholder="">
         <button type="submit" class="popap__input-save">
-          <p class="popap__text-color">Сохранить</p>
+          <p class="popap__text-color"></p>
         </button>
       </form>
+    </template>
+    </section>
+    <section class="popap-image popap-image_opened">
+      <div class="popap-image__container">
+        <img src="" alt="" class="popap-image__content">
+        <span class="popap-image__close"></span>
+        <p class="popap-image__name">Content</p>
+      </div>
     </section>
   </main>
   <footer class="footer">

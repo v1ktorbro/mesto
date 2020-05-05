@@ -2,11 +2,15 @@
 @import url(./__title/card__title.css);
 @import url(./__image/card__image.css);
 @import url(./__info/card__info.css);
+@import url(./__btn-delete/card__btn-delete.css);
 
 .card {
   background-color: #ffffff;
+  position: relative;
   border-radius: 10px;
   max-height: 361px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 650px) {

@@ -1,17 +1,32 @@
+.card__image {
+  border-radius: 10px 10px 0 0;
+  width: 282px;
+  height: 282px;
+  transition: all 0.3s ease 0s;
+}
+
+.card__image:hover {
+  opacity: .93;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 650px) {
   .card__image {
     max-width: 240px;
+    max-height: 240px;
   }
 }
 
 @media screen and (max-width: 520px) {
   .card__image {
     max-width: 187px;
+    max-height: 187px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .card__image {
     max-width: 282px;
+    max-height: 282px;
   }
 }
