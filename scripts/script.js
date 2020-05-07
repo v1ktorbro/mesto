@@ -33,13 +33,18 @@ const initialCards = [
 
 const sectionCards = document.querySelector(".cards");
 
-function createCards(el) {
+function createCard(el) {
   const templateCards = document.querySelector("#template-cards").content;
   const cardElement = templateCards.cloneNode(true);
   cardElement.querySelector(".card__title").textContent = el.name;
   cardElement.querySelector(".card__image").src = el.link;
   cardElement.querySelector(".card__image").alt = el.name;
-  sectionCards.prepend(cardElement);
+  return cardElement;
+};
+
+function renderCard(el) {
+  const card = createCard(el);
+  sectionCards.prepend(card);
   //like
   const btnLike = sectionCards.querySelector(".btn-image_like");
   btnLike.addEventListener("click", likeCard);
@@ -51,7 +56,7 @@ function createCards(el) {
   btnImage.addEventListener("click", imageLoupe);
 }
 
-initialCards.forEach(createCards);
+initialCards.forEach(renderCard);
 
 function imageLoupe(event) {
   const image = event.target.closest(".card__image");
@@ -138,7 +143,7 @@ function addCard(evt) {
     link: linkInput.value,
   };
   if (popapPlus.classList.contains("popap_opened")) {
-    createCards(el);
+    renderCard(el);
   } else {
     nameInput.value = '';
     linkInput.value = '';
