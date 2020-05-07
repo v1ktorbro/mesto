@@ -47,18 +47,28 @@
         </div>
       </template>
 	 </section>
-	 <section class="popap popap_opened">
-     <template id="template-popap">
-      <form class="popap__container">
-        <span class="popap__close"></span>
-        <h2 class="popap__title"></h2>
-        <input type="text" class="popap__input-name" placeholder="">
-        <input type="text" class="popap__input-signature" placeholder="">
-        <button type="submit" class="popap__input-save">
-          <p class="popap__text-color"></p>
-        </button>
-      </form>
-    </template>
+	 <section class="popap-edit popap popap_opened">
+    <form class="popap__container">
+      <span class="popap__close"></span>
+      <h2 class="popap__title">Редактировать профиль</h2>
+      <input type="text" class="popap__input-name" placeholder="Имя">
+      <input type="text" class="popap__input-signature" placeholder="О себе">
+      <button type="submit" class="popap__input-save">
+        <p class="popap__text-color">Сохранить</p>
+      </button>
+    </form>
+   </section>
+   <section class="popap-place popap popap_opened">
+    <form class="popap__container">
+      <span class="popap__close"></span>
+      <h2 class="popap__title">Новое место</h2>
+      <input type="text" class="popap__input-name" placeholder="Название">
+      <input type="text" class="popap__input-signature" placeholder="Ссылка на картинку">
+      <button type="submit" class="popap__input-save">
+        <p class="popap__text-color">Создать</p>
+      </button>
+    </form>
+  </section>
     </section>
     <section class="popap-image popap-image_opened">
       <div class="popap-image__container">
