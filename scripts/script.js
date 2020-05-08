@@ -98,6 +98,7 @@ function btnCloseListenFormEdit() {
   const btnClose = popapEdit.querySelector(".popap__close");
   btnClose.addEventListener("click", closeFormEdit);
 };
+btnCloseListenFormEdit();
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -110,14 +111,13 @@ function formSubmitHandler(evt) {
   } else {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-    submitEditProfile();
-    btnCloseListenFormEdit();
   }
-}
+};
 function submitEditProfile() {
   const formElement = popapEdit.querySelector(".popap__container");
   formElement.addEventListener("submit", formSubmitHandler);
 };
+submitEditProfile();
 
 btnEdit.addEventListener("click", formSubmitHandler);
 
@@ -133,6 +133,8 @@ function btnCloseListenFormPlus() {
   const btnClose = popapPlus.querySelector(".popap__close");
   btnClose.addEventListener("click", closeFormPlus);
 };
+btnCloseListenFormPlus();
+
 function addCard(evt) {
   evt.preventDefault();
   popapPlus.classList.toggle("popap_opened");
@@ -147,12 +149,11 @@ function addCard(evt) {
   } else {
     nameInput.value = '';
     linkInput.value = '';
-    submitAddCard();
-    btnCloseListenFormPlus();
   }
 }
 function submitAddCard() {
   const formElement = popapPlus.querySelector(".popap__container");
   formElement.addEventListener("submit", addCard);
 };
+submitAddCard();
 btnPlus.addEventListener("click", addCard);
