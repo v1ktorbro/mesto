@@ -87,73 +87,66 @@ const popapEdit = document.querySelector(".popap-edit");
 const btnEdit = document.querySelector(".profile__btn-edit");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__signature");
+const nameInput = popapEdit.querySelector(".popap__input-name");
+const jobInput = popapEdit.querySelector(".popap__input-signature");
 
-function closeFormEdit() {
-  if (popapEdit.querySelector(".popap__container")) {
-    popapEdit.classList.add("popap_opened");
-  }
-};
+function toggleFormEdit() {
+	popapEdit.classList.toggle("popap_opened");
+	nameInput.value = profileName.textContent;
+	jobInput.value = profileJob.textContent;
+ };
 
 function btnCloseListenFormEdit() {
   const btnClose = popapEdit.querySelector(".popap__close");
-  btnClose.addEventListener("click", closeFormEdit);
+  btnClose.addEventListener("click", toggleFormEdit);
 };
 btnCloseListenFormEdit();
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  popapEdit.classList.toggle("popap_opened");
-  const nameInput = popapEdit.querySelector(".popap__input-name");
-  const jobInput = popapEdit.querySelector(".popap__input-signature");
-  if (popapEdit.classList.contains("popap_opened")) {
-    profileName.textContent = nameInput.value;
-    profileJob.textContent = jobInput.value;
-  } else {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-  }
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  toggleFormEdit();
 };
+
 function submitEditProfile() {
   const formElement = popapEdit.querySelector(".popap__container");
   formElement.addEventListener("submit", formSubmitHandler);
 };
 submitEditProfile();
 
-btnEdit.addEventListener("click", formSubmitHandler);
+btnEdit.addEventListener("click", toggleFormEdit);
 
 const popapPlus = document.querySelector(".popap-place");
 const btnPlus = document.querySelector(".profile__btn-plus");
-function closeFormPlus() {
-  if (popapPlus.querySelector(".popap__container")) {
-    popapPlus.classList.add("popap_opened");
-  }
+const namePlaceInput = popapPlus.querySelector(".popap__input-name");
+const linkPlaceInput = popapPlus.querySelector(".popap__input-signature");
+
+function toggleFormPlus() {
+  popapPlus.classList.toggle("popap_opened");
+  namePlaceInput.value = '';
+  linkPlaceInput.value = '';
 };
 
 function btnCloseListenFormPlus() {
   const btnClose = popapPlus.querySelector(".popap__close");
-  btnClose.addEventListener("click", closeFormPlus);
+  btnClose.addEventListener("click", toggleFormPlus);
 };
 btnCloseListenFormPlus();
 
 function addCard(evt) {
   evt.preventDefault();
-  popapPlus.classList.toggle("popap_opened");
-  const nameInput = popapPlus.querySelector(".popap__input-name");
-  const linkInput = popapPlus.querySelector(".popap__input-signature");
   const el = {
-    name: nameInput.value,
-    link: linkInput.value,
+    name: namePlaceInput.value,
+    link: linkPlaceInput.value,
   };
-  if (popapPlus.classList.contains("popap_opened")) {
-    renderCard(el);
-  } else {
-    nameInput.value = '';
-    linkInput.value = '';
-  }
-}
+  renderCard(el);
+  toggleFormPlus();
+};
+
 function submitAddCard() {
   const formElement = popapPlus.querySelector(".popap__container");
   formElement.addEventListener("submit", addCard);
 };
 submitAddCard();
-btnPlus.addEventListener("click", addCard);
+btnPlus.addEventListener("click", toggleFormPlus);
