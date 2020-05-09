@@ -91,7 +91,11 @@ const nameInput = popapEdit.querySelector(".popap__input-name");
 const jobInput = popapEdit.querySelector(".popap__input-signature");
 
 function toggleFormEdit() {
-	popapEdit.classList.toggle("popap_opened");
+  popapEdit.classList.toggle("popap_opened");
+  configFormEdit();
+ };
+
+ function configFormEdit() {
 	nameInput.value = profileName.textContent;
 	jobInput.value = profileJob.textContent;
  };
@@ -124,6 +128,10 @@ const linkPlaceInput = popapPlus.querySelector(".popap__input-signature");
 
 function toggleFormPlus() {
   popapPlus.classList.toggle("popap_opened");
+  configFormPlus();
+};
+
+function configFormPlus() {
   namePlaceInput.value = '';
   linkPlaceInput.value = '';
 };
