@@ -6,6 +6,7 @@
 @import url(./__input-signature/popap__input-signature.css);
 @import url(./__input-save/popap__input-save.css);
 @import url(./__text-color/popap__text-color.css);
+@import url(./__input-error/popap__input-error.css);
 
 .popap {
   position: fixed;
@@ -15,4 +16,6 @@
   transition: .5s linear;
   top: 0;
   left: 0;
+  z-index: 0;
+  cursor: pointer;
 }

@@ -48,11 +48,13 @@
       </template>
 	 </section>
 	 <section class="popap-edit popap popap_opened">
-    <form class="popap__container">
+    <form class="popap__container" novalidate>
       <span class="popap__close"></span>
       <h2 class="popap__title">Редактировать профиль</h2>
-      <input type="text" class="popap__input-name" placeholder="Имя">
-      <input type="text" class="popap__input-signature" placeholder="О себе">
+      <input type="text" class="popap__input popap__input-name" id='name-input' required pattern="[A-Za-zА-Яа-я -]{2,40}" placeholder="Имя">
+      <span class="popap__input-error" id="name-input-error"></span>
+      <input type="text" class="popap__input popap__input-signature" id='signature-input' required minlength='2' maxlength='200' placeholder="О себе">
+      <span class="popap__input-error" id="signature-input-error"></span>
       <button type="submit" class="popap__input-save">
         <p class="popap__text-color">Сохранить</p>
       </button>
@@ -62,8 +64,10 @@
     <form class="popap__container">
       <span class="popap__close"></span>
       <h2 class="popap__title">Новое место</h2>
-      <input type="text" class="popap__input-name" placeholder="Название">
-      <input type="text" class="popap__input-signature" placeholder="Ссылка на картинку">
+      <input type="text" class="popap__input popap__input-name" id='name-input' required pattern="[A-Za-zА-Яа-я -]{1,30}" placeholder="Название">
+      <span class="popap__input-error" id="name-input-error"></span>
+      <input type="url" class="popap__input popap__input-signature" id='signature-input' required placeholder="Ссылка на картинку">
+      <span class="popap__input-error" id="signature-input-error"></span>
       <button type="submit" class="popap__input-save">
         <p class="popap__text-color">Создать</p>
       </button>
@@ -81,6 +85,8 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020. Абросимов Виктор</p>
   </footer>
-  <script src="scripts/script.js"></script>
+  <script src="scripts/initialCards.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/validation.js"></script>
 </body>
 </html>
