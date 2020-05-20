@@ -1,8 +1,20 @@
 .popap__input-error_active {
   color: red;
   font-size: 12px;
-  line-height: 15px;
   width: 358px;
   margin: -30px auto 0;
   height: 30px;
+}
+
+@media screen and (max-width: 1050px) {
+  .popap__input-error_active {
+    min-width: 281px;
+    margin-top: -25px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popap__input-error_active {
+    max-width: 250px;
+  }
 }
