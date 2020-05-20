@@ -1,0 +1,8 @@
+.popap__input-error_active {
+  color: red;
+  font-size: 12px;
+  line-height: 15px;
+  width: 358px;
+  margin: -30px auto 0;
+  height: 30px;
+}
