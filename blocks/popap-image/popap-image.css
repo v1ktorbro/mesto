@@ -2,7 +2,7 @@
 @import url(./__close/popap-image__close.css);
 @import url(./__content/popap-image__content.css);
 @import url(./__container/popap-image__container.css);
-@import url(./_opened/popap-image_opened.css);
+@import url(./_closed/popap-image_closed.css);
 
 .popap-image {
   position: fixed;

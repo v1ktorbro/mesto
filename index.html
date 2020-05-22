@@ -47,7 +47,7 @@
         </div>
       </template>
 	 </section>
-	 <section class="popap-edit popap popap_opened">
+	 <section class="popap-edit popap popap_closed">
     <form class="popap__container" novalidate>
       <span class="popap__close"></span>
       <h2 class="popap__title">Редактировать профиль</h2>
@@ -60,8 +60,8 @@
       </button>
     </form>
    </section>
-   <section class="popap-place popap popap_opened">
-    <form class="popap__container">
+   <section class="popap-place popap popap_closed">
+    <form class="popap__container" novalidate>
       <span class="popap__close"></span>
       <h2 class="popap__title">Новое место</h2>
       <input type="text" class="popap__input popap__input-name" id='name-input' required pattern="[A-Za-zА-Яа-я -]{1,30}" placeholder="Название">
@@ -74,7 +74,7 @@
     </form>
   </section>
     </section>
-    <section class="popap-image popap-image_opened">
+    <section class="popap-image popap-image_closed">
       <div class="popap-image__container">
         <img src="" alt="" class="popap-image__content">
         <span class="popap-image__close"></span>
