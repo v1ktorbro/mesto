@@ -25,11 +25,9 @@ function renderCard(el) {
 
 initialCards.forEach(renderCard);
 
-function TogglelistenKeyEscape () {
+function ToggleListenKeyEscape () {
   if (!popapImage.classList.contains('popap-image_closed')) {
     document.addEventListener('keydown', escHandler);
-  } else {
-    document.removeEventListener('keydown', escHandler);
   }
 };
 
@@ -45,7 +43,7 @@ function imageLoupe(event) {
   //закрывашка
   const btnClose = popapImage.querySelector(".popap-image__close");
   btnClose.addEventListener("click", () => popapImage.classList.add("popap-image_closed"));
-  TogglelistenKeyEscape();
+  ToggleListenKeyEscape();
 };
 
 function deleteCard(event) {
@@ -74,14 +72,14 @@ const configFormEdit = () => {
 function openFormEdit() {
   popapEdit.classList.remove("popap_closed");
   configFormEdit();
-  clearInputError(inputsFormEdit, popapEdit, btnSave);
+  clearInputError(inputsFormEdit, popapEdit, btnSave, formObject);
   document.addEventListener('keydown', escHandler);
 };
 
 function closeFormEdit() {
   popapEdit.classList.add("popap_closed");
   configFormEdit();
-  clearInputError(inputsFormEdit, popapEdit, btnSave);
+  clearInputError(inputsFormEdit, popapEdit, btnSave, formObject);
   document.removeEventListener('keydown', escHandler);
 };
 
@@ -122,14 +120,14 @@ const configFormPlus = () => {
 function openFormPlus() {
   popapPlus.classList.remove("popap_closed");
   configFormPlus();
-  clearInputError(inputsFormPlus, popapPlus, btnCreate);
+  clearInputError(inputsFormPlus, popapPlus, btnCreate, formObject);
   document.addEventListener('keydown', escHandler);
 };
 
 function closeFormPlus() {
   popapPlus.classList.add("popap_closed");
   configFormPlus();
-  clearInputError(inputsFormPlus, popapPlus, btnCreate);
+  clearInputError(inputsFormPlus, popapPlus, btnCreate, formObject);
   document.removeEventListener('keydown', escHandler);
 };
 
