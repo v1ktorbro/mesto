@@ -7,11 +7,11 @@ const formObject = {
   errorSpanClass: 'popap__input-error_active' //span с текстом ошибки
 };
 
-function checkInputValidity(form, input) {
+function checkInputValidity(form, input, formObject) {
   if (!input.checkValidity()) {
-    showInputError(form, input, input.validationMessage);
+    showInputError(form, input, input.validationMessage, formObject);
   } else {
-    hideInputError(form, input);
+    hideInputError(form, input, formObject);
   }
 };
 
@@ -22,14 +22,14 @@ function hasInvalidInput(inputList) {
   })
 };
 
-function showInputError(form, input, errorMessage) {
+function showInputError(form, input, errorMessage, formObject) {
   const errorElement = form.querySelector(`#${input.id}-error`);
   input.classList.add(formObject.inputErrorClass);
   errorElement.classList.add(formObject.errorSpanClass);
   errorElement.textContent = errorMessage;
 }
 
-function hideInputError(form, input) {
+function hideInputError(form, input, formObject) {
   const errorElement = form.querySelector(`#${input.id}-error`);
   input.classList.remove(formObject.inputErrorClass);
   errorElement.classList.remove(formObject.errorSpanClass);
@@ -37,7 +37,7 @@ function hideInputError(form, input) {
 };
 
 //очищалка ошибок у инпутов
-function clearInputError(inputsList, form, btnElem) {
+function clearInputError(inputsList, form, btnElem, formObject) {
   inputsList.forEach((input) => {
   const errorElement = form.querySelector(`#${input.id}-error`);
     errorElement.textContent = '';
@@ -52,7 +52,7 @@ function clearInputError(inputsList, form, btnElem) {
 
 const formEdit = popapEdit.querySelector('.popap__container'); //форма редактирования профиля
 
-function toggleButtonState (inputList, btnElem) {
+function toggleButtonState (inputList, btnElem, formObject) {
   if(hasInvalidInput(inputList)) {
     btnElem.disabled = true;
     btnElem.classList.add(formObject.inactiveButtonClass);
@@ -62,14 +62,14 @@ function toggleButtonState (inputList, btnElem) {
   }
 };
 
-function setEventListener(form) {
+function setEventListener(form, formObject) {
   const inputList = Array.from(form.querySelectorAll(formObject.inputSelector));
   const btnElem = form.querySelector(formObject.submitButtonSelector);
-  toggleButtonState(inputList, btnElem);
+  toggleButtonState(inputList, btnElem, formObject);
   inputList.forEach((input) => {
     input.addEventListener('input', ()=> {
-      checkInputValidity(form, input);
-      toggleButtonState(inputList, btnElem);
+      checkInputValidity(form, input, formObject);
+      toggleButtonState(inputList, btnElem, formObject);
     })
   })
 };
@@ -82,18 +82,18 @@ function escHandler(evt) {
     popapEdit.classList.add('popap_closed');
     popapPlus.classList.add('popap_closed');
     popapImage.classList.add('popap-image_closed');
+    document.removeEventListener('keydown', escHandler);
   }
 };
 
 function overlayPopap(evt) {
   if (evt.target.classList.contains('popap')) {
     evt.target.classList.add('popap_closed');
-    document.removeEventListener('keydown', escHandler);
   }
   if (evt.target.classList.contains('popap-image')) {
     evt.target.classList.add('popap-image_closed');
-    document.removeEventListener('keydown', escHandler);
   }
+  document.removeEventListener('keydown', escHandler);
 };
 
 popapImage.addEventListener('click', overlayPopap);
@@ -105,7 +105,7 @@ function enableValidation (formObject) {
   const formList = Array.from(document.querySelectorAll(formObject.formSelector));
   formList.forEach((form) => {
     form.addEventListener('submit', (evt) => evt.preventDefault);
-    setEventListener(form);
+    setEventListener(form, formObject);
   })
 };
 enableValidation(formObject);
