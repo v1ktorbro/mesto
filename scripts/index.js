@@ -61,7 +61,7 @@ const btnSave = popapEdit.querySelector('.popap__input-save');
 const inputsFormEdit = Array.from(popapEdit.querySelectorAll('.popap__input'));
 const configFormEdit = () => {
 	nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+   jobInput.value = profileJob.textContent;
 };
 
 function openFormEdit() {
@@ -105,7 +105,7 @@ const namePlaceInput = popapPlus.querySelector(".popap__input-name");
 const linkPlaceInput = popapPlus.querySelector(".popap__input-signature");
 const inputsFormPlus = Array.from(popapPlus.querySelectorAll('.popap__input'));
 const btnCreate = popapPlus.querySelector('.popap__input-save');
-const configFormPlus = () => {
+const configFormPlus = (formObject) => {
   namePlaceInput.value = '';
   linkPlaceInput.value = '';
   //т.к в форме создания карточек изначально инфа отсутствует, кнопка будет неактивной при открытии
@@ -114,14 +114,14 @@ const configFormPlus = () => {
 
 function openFormPlus() {
   popapPlus.classList.remove("popap_closed");
-  configFormPlus();
+  configFormPlus(formObject);
   clearInputError(inputsFormPlus, popapPlus, btnCreate, formObject);
   document.addEventListener('keydown', escHandler);
 };
 
 function closeFormPlus() {
   popapPlus.classList.add("popap_closed");
-  configFormPlus();
+  configFormPlus(formObject);
   clearInputError(inputsFormPlus, popapPlus, btnCreate, formObject);
   document.removeEventListener('keydown', escHandler);
 };
