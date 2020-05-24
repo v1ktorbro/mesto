@@ -25,12 +25,6 @@ function renderCard(el) {
 
 initialCards.forEach(renderCard);
 
-function ToggleListenKeyEscape () {
-  if (!popapImage.classList.contains('popap-image_closed')) {
-    document.addEventListener('keydown', escHandler);
-  }
-};
-
 // эта константа нужна будет для оверлея, поэтому кидаю в глобальную видимость
 const popapImage = document.querySelector(".popap-image");
 function imageLoupe(event) {
@@ -40,11 +34,12 @@ function imageLoupe(event) {
   const imageName = popapImage.querySelector(".popap-image__name");
   imageSource.src = image.src;
   imageName.textContent = image.alt;
-  //закрывашка
-  const btnClose = popapImage.querySelector(".popap-image__close");
-  btnClose.addEventListener("click", () => popapImage.classList.add("popap-image_closed"));
-  ToggleListenKeyEscape();
+  document.addEventListener('keydown', escHandler);
 };
+
+//закрывашка для изображения
+const btnCloseImage = popapImage.querySelector(".popap-image__close");
+btnCloseImage.addEventListener("click", () => popapImage.classList.add("popap-image_closed"));
 
 function deleteCard(event) {
   const card = event.target.closest(".card");
@@ -153,3 +148,29 @@ function submitAddCard() {
 };
 submitAddCard();
 btnPlus.addEventListener("click", openFormPlus);
+
+//ф-я для закртия поп-ап окна клавишей 'Esc'
+function escHandler(evt) {
+  if (evt.key === 'Escape') {
+    popapEdit.classList.add('popap_closed');
+    popapPlus.classList.add('popap_closed');
+    popapImage.classList.add('popap-image_closed');
+    document.removeEventListener('keydown', escHandler);
+  }
+};
+
+function overlayPopap(evt) {
+  if (evt.target.classList.contains('popap')) {
+    evt.target.classList.add('popap_closed');
+  }
+  if (evt.target.classList.contains('popap-image')) {
+    evt.target.classList.add('popap-image_closed');
+  }
+  document.removeEventListener('keydown', escHandler);
+};
+
+popapImage.addEventListener('click', overlayPopap);
+const popaps = document.querySelectorAll('.popap'); //собираем все попапы чтобы накинуть на них оверлей
+popaps.forEach((popap) => {
+  popap.addEventListener('mousedown', overlayPopap);
+});

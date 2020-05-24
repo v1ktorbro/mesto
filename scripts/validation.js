@@ -50,8 +50,6 @@ function clearInputError(inputsList, form, btnElem, formObject) {
   })
 };
 
-const formEdit = popapEdit.querySelector('.popap__container'); //форма редактирования профиля
-
 function toggleButtonState (inputList, btnElem, formObject) {
   if(hasInvalidInput(inputList)) {
     btnElem.disabled = true;
@@ -73,33 +71,6 @@ function setEventListener(form, formObject) {
     })
   })
 };
-
-const popaps = document.querySelectorAll('.popap'); //собираем все попапы чтобы накинуть на них оверлей
-
-//ф-я для закртия поп-ап окна клавишей 'Esc'
-function escHandler(evt) {
-  if (evt.key === 'Escape') {
-    popapEdit.classList.add('popap_closed');
-    popapPlus.classList.add('popap_closed');
-    popapImage.classList.add('popap-image_closed');
-    document.removeEventListener('keydown', escHandler);
-  }
-};
-
-function overlayPopap(evt) {
-  if (evt.target.classList.contains('popap')) {
-    evt.target.classList.add('popap_closed');
-  }
-  if (evt.target.classList.contains('popap-image')) {
-    evt.target.classList.add('popap-image_closed');
-  }
-  document.removeEventListener('keydown', escHandler);
-};
-
-popapImage.addEventListener('click', overlayPopap);
-popaps.forEach((popap) => {
-  popap.addEventListener('mousedown', overlayPopap);
-});
 
 function enableValidation (formObject) {
   const formList = Array.from(document.querySelectorAll(formObject.formSelector));
