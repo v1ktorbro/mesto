@@ -1,58 +1,24 @@
+import { initialCards } from "./initialCards.js";
+import { Card } from "./Card.js";
+import { validateEdtitPopap, validatePlusPopap, formObject } from "./FormValidator.js";
+export { sectionCards, popapImage, escHandler };
+
 const sectionCards = document.querySelector(".cards");
-const templateCards = document.querySelector("#template-cards").content;
+const popapImage = document.querySelector(".popap-image");
 
-function createCard(el) {
-  const cardElement = templateCards.cloneNode(true);
-  cardElement.querySelector(".card__title").textContent = el.name;
-  cardElement.querySelector(".card__image").src = el.link;
-  cardElement.querySelector(".card__image").alt = el.name;
-  return cardElement;
+function renderCard(data) {
+  const card = new Card(data, '#template-cards');
+  const cardElement = card.createCard();
+  sectionCards.prepend(cardElement);
 };
-
-function renderCard(el) {
-  const card = createCard(el);
-  sectionCards.prepend(card);
-  //like
-  const btnLike = sectionCards.querySelector(".btn-image_like");
-  btnLike.addEventListener("click", likeCard);
-  // delete
-  const btnDelete = sectionCards.querySelector(".btn-image_delete");
-  btnDelete.addEventListener("click", deleteCard);
-  //лупа
-  const btnImage = document.querySelector(".card__image");
-  btnImage.addEventListener("click", imageLoupe);
-}
 
 initialCards.forEach(renderCard);
 
-// эта константа нужна будет для оверлея, поэтому кидаю в глобальную видимость
-const popapImage = document.querySelector(".popap-image");
-function imageLoupe(event) {
-  const image = event.target.closest(".card__image");
-  popapImage.classList.toggle("popap-image_closed");
-  const imageSource = popapImage.querySelector(".popap-image__content");
-  const imageName = popapImage.querySelector(".popap-image__name");
-  imageSource.src = image.src;
-  imageName.textContent = image.alt;
-  document.addEventListener('keydown', escHandler);
-};
-
-//закрывашка для изображения
+//закрывашка для изображения. Чтобы не вешать ее каждый раз при создании новый карточки, вынес ее отдельно
 const btnCloseImage = popapImage.querySelector(".popap-image__close");
 btnCloseImage.addEventListener("click", () => popapImage.classList.add("popap-image_closed"));
 
-function deleteCard(event) {
-  const card = event.target.closest(".card");
-  card.remove();
-};
-
-function likeCard(event) {
-  const eventTarget = event.target;
-  eventTarget.classList.toggle("btn-image_like_active");
-};
-
 const popapEdit = document.querySelector(".popap-edit");
-const btnEdit = document.querySelector(".profile__btn-edit");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__signature");
 const nameInput = popapEdit.querySelector(".popap__input-name");
@@ -60,29 +26,28 @@ const jobInput = popapEdit.querySelector(".popap__input-signature");
 const btnSave = popapEdit.querySelector('.popap__input-save');
 const inputsFormEdit = Array.from(popapEdit.querySelectorAll('.popap__input'));
 const configFormEdit = () => {
-	nameInput.value = profileName.textContent;
+	 nameInput.value = profileName.textContent;
    jobInput.value = profileJob.textContent;
 };
 
 function openFormEdit() {
   popapEdit.classList.remove("popap_closed");
   configFormEdit();
-  clearInputError(inputsFormEdit, popapEdit, btnSave, formObject);
+  validateEdtitPopap._clearInputError(inputsFormEdit, btnSave);
   document.addEventListener('keydown', escHandler);
 };
 
 function closeFormEdit() {
   popapEdit.classList.add("popap_closed");
   configFormEdit();
-  clearInputError(inputsFormEdit, popapEdit, btnSave, formObject);
+  validateEdtitPopap._clearInputError(inputsFormEdit, btnSave);
   document.removeEventListener('keydown', escHandler);
 };
 
-function btnCloseListenFormEdit() {
+(function btnCloseListenFormEdit() {
   const btnClose = popapEdit.querySelector(".popap__close");
   btnClose.addEventListener("click", closeFormEdit);
-};
-btnCloseListenFormEdit();
+})();
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -91,16 +56,15 @@ function formSubmitHandler(evt) {
   closeFormEdit();
 };
 
-function submitEditProfile() {
+(function submitEditProfile() {
   const formElement = popapEdit.querySelector(".popap__container");
   formElement.addEventListener("submit", formSubmitHandler);
-};
-submitEditProfile();
+})();
 
+const btnEdit = document.querySelector(".profile__btn-edit");
 btnEdit.addEventListener("click", openFormEdit);
 
 const popapPlus = document.querySelector(".popap-place");
-const btnPlus = document.querySelector(".profile__btn-plus");
 const namePlaceInput = popapPlus.querySelector(".popap__input-name");
 const linkPlaceInput = popapPlus.querySelector(".popap__input-signature");
 const inputsFormPlus = Array.from(popapPlus.querySelectorAll('.popap__input'));
@@ -115,38 +79,38 @@ const configFormPlus = (formObject) => {
 function openFormPlus() {
   popapPlus.classList.remove("popap_closed");
   configFormPlus(formObject);
-  clearInputError(inputsFormPlus, popapPlus, btnCreate, formObject);
+  validatePlusPopap._clearInputError(inputsFormPlus, btnCreate);
   document.addEventListener('keydown', escHandler);
 };
 
 function closeFormPlus() {
   popapPlus.classList.add("popap_closed");
   configFormPlus(formObject);
-  clearInputError(inputsFormPlus, popapPlus, btnCreate, formObject);
+  validatePlusPopap._clearInputError(inputsFormPlus, btnCreate);
   document.removeEventListener('keydown', escHandler);
 };
 
-function btnCloseListenFormPlus() {
+(function btnCloseListenFormPlus() {
   const btnClose = popapPlus.querySelector(".popap__close");
   btnClose.addEventListener("click", closeFormPlus);
-};
-btnCloseListenFormPlus();
+})();
 
 function addCard(evt) {
   evt.preventDefault();
-  const el = {
+  const data = {
     name: namePlaceInput.value,
     link: linkPlaceInput.value,
   };
-  renderCard(el);
+  renderCard(data);
   closeFormPlus();
 };
 
-function submitAddCard() {
+(function submitAddCard() {
   const formElement = popapPlus.querySelector(".popap__container");
   formElement.addEventListener("submit", addCard);
-};
-submitAddCard();
+})();
+
+const btnPlus = document.querySelector(".profile__btn-plus");
 btnPlus.addEventListener("click", openFormPlus);
 
 //ф-я для закртия поп-ап окна клавишей 'Esc'
