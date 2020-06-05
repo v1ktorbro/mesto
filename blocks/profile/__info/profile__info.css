@@ -1,5 +1,11 @@
 .profile__info {
-  margin-left: 2.35vw; /* or 30px */
+  margin-left: 30px; /* or 2.35vw */
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__info {
+    margin-left: 0;
+  }
 }

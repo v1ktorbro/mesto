@@ -15,15 +15,23 @@
 
 @media screen and (max-width: 1050px) {
   .popap__container {
-    min-width: 400px;
-    min-height: 300px;
+    width: 400px;
+    height: 300px;
     justify-content: space-evenly;
   }
 }
 
 @media screen and (max-width: 500px) {
   .popap__container {
-    min-width: 282px;
-    min-height: 282px;
+    width: 340px;
+    height: 250px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .popap__container {
+    width: 262px;
+    height: 250px;
   }
 }

@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 1050px) {
   .popap__input-name {
-    min-width: 281px;
+    width: 281px;
     min-height: 35px;
     font-size: 13px;
   }
@@ -27,9 +27,15 @@
 
 @media screen and (max-width: 500px) {
   .popap__input-name {
-    max-width: 250px;
+    width: 230px;
     font-size: 12px;
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .popap__input-name {
+    width: 200px;
   }
 }
 

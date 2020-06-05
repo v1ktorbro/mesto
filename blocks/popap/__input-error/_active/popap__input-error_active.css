@@ -4,17 +4,30 @@
   width: 358px;
   margin: -30px auto 0;
   height: 30px;
+  white-space: pre-wrap;
 }
 
 @media screen and (max-width: 1050px) {
   .popap__input-error_active {
-    min-width: 281px;
+    width: 281px;
     margin-top: -25px;
+    margin-left: 57px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .popap__input-error_active {
-    max-width: 250px;
+    margin-top: -20px;
+    margin-left: 52px;
+    width: 230px;
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  .popap__input-error_active {
+    width: 200px;
+    margin-left: auto;
+    margin-bottom: 10px;
   }
 }

@@ -20,7 +20,7 @@ export class Card {
     this._element = this._getTemplate();
     this._element.querySelector('.card__title').textContent = this._name;
     this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__image').alt = this._name;
+    this._element.querySelector('.card__image').alt = `Картинка ${this._name}`;
     this._setEventListeners();
     return this._element;
   }
