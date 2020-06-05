@@ -18,7 +18,7 @@
 
 @media screen and (max-width: 1050px) {
   .popap__input-save {
-    min-width: 281px;
+    width: 281px;
     min-height: 45px;
   }
 }
@@ -26,7 +26,14 @@
 @media screen and (max-width: 500px) {
   .popap__input-save {
     margin-bottom: 25px;
-    max-width: 250px;
+    width: 235px;
     min-height: 35px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .popap__input-save {
+    margin-bottom: 10px;
+    width: 200px;
   }
 }

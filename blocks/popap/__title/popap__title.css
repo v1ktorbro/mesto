@@ -25,8 +25,15 @@
 
 @media screen and (max-width: 500px) {
   .popap__title {
-    font-size: 20px;
-    line-height: 22px;
-    margin: 15px auto 0;
+    font-size: 18px;
+    line-height: 21px;
+    margin: 10px auto ;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .popap__title {
+    font-size: 16px;
+    line-height: 19px;
   }
 }
