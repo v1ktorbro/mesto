@@ -6,8 +6,8 @@
         bloks/          блоки страниц
         fonts/          шрифты
         images/         картинки, логотипы, бэкграунды
-        pages/          index.css
-        scripts/        скрипты
+        pages/          index.css, index.js
+        src/            скрипты
         vendor/         папка для сторонних стилей
         index.html
         README.md
