@@ -1,15 +1,16 @@
-import { Card } from "../src/components/Card.js";
-import { FormValidator } from "../src/components/FormValidator.js";
-import { Section } from "../src/components/Section.js";
-import { PopupWithForm } from "../src/components/PopapWithForm.js"
-import { Popap } from "../src/components/Popap.js";
-import { PopupWithImage } from "../src/components/PopupWithImage.js";
-import { UserInfo } from "../src/components/UserInfo.js";
+import "./index.css";
+import { Card } from "./components/Card.js";
+import { FormValidator } from "./components/FormValidator.js";
+import { Section } from "./components/Section.js";
+import { PopupWithForm } from "./components/PopapWithForm.js"
+import { Popap } from "./components/Popap.js";
+import { PopupWithImage } from "./components/PopupWithImage.js";
+import { UserInfo } from "./components/UserInfo.js";
 import {
   formObject, configFormPlus,
   initialCards, overlayPopapImage,
   popaps, btnEdit, btnPlus
-} from "../src/utils/constants.js";
+} from "./utils/constants.js";
 
 //очищалка ошибок у инпутов формы
 function clearInputError(popap, formObject) {
