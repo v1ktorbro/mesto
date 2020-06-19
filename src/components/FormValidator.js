@@ -1,6 +1,4 @@
-export { FormValidator };
-
-class FormValidator {
+export class FormValidator {
   constructor (object, form) {
     this._formSelector = object.formSelector;
     this._inputSelector = object.inputSelector;
@@ -8,7 +6,7 @@ class FormValidator {
     this._inactiveButtonClass = object.inactiveButtonClass;
     this._inputErrorClass = object.inputErrorClass;
     this._errorSpanClass = object.errorSpanClass;
-    this._form = form;
+    this._form = document.querySelector(form);
   }
 
   _showInputError(input, errorMessage) {
