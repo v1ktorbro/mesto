@@ -5,3 +5,15 @@
   margin-left: 21px;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 650px) {
+  .card__info {
+    max-width: 205px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .card__info {
+    max-width: 273px;
+  }
+}

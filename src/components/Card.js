@@ -1,9 +1,14 @@
 export class Card {
-  constructor(data, cardSelector,   { handleCardClick }  ) {
+  constructor(data, cardSelector, { handleCardClick }) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick
+    this._handleCardClick = handleCardClick;
+    this._likeCard = () => this._btnLike.classList.toggle('btn-image_like_active');
+    this._deleteCard = () => {
+      this._element.remove();
+      this._removeEventListeners()
+    }
   }
   _getTemplate() {
     const sectionCards = document.querySelector(".cards");
@@ -17,20 +22,22 @@ export class Card {
   createCard() {
     this._element = this._getTemplate();
     this._element.querySelector('.card__title').textContent = this._name;
-    this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__image').alt = `Картинка ${this._name}`;
+    this._cardImage = this._element.querySelector('.card__image');
+    this._cardImage.src = this._link;
+    this._cardImage.alt = `Картинка ${this._name}`;
+    this._btnLike = this._element.querySelector('.btn-image_like');
+    this._btnDelete = this._element.querySelector('.btn-image_delete');
     this._setEventListeners();
     return this._element;
   }
-  _likeCard() {
-    this._element.querySelector('.btn-image_like').classList.toggle('btn-image_like_active');
+  _setEventListeners() {
+    this._cardImage.addEventListener('click', this._handleCardClick);
+    this._btnLike.addEventListener('click', this._likeCard);
+    this._btnDelete.addEventListener('click', this._deleteCard);
   }
-  _deleteCard() {
-    this._element.remove();
-  }
-  _setEventListeners(){
-    this._element.querySelector('.card__image').addEventListener('click', () => this._handleCardClick());
-    this._element.querySelector('.btn-image_like').addEventListener('click', ()=> this._likeCard());
-    this._element.querySelector('.btn-image_delete').addEventListener('click', ()=> this._deleteCard());
+  _removeEventListeners() {
+    this._cardImage.removeEventListener('click', this._handleCardClick);
+    this._btnLike.removeEventListener('click', this._likeCard);
+    this._btnDelete.removeEventListener('click', this._deleteCard)
   }
 };
