@@ -59,6 +59,17 @@ export class FormValidator {
     })
   };
 
+  //очищаем | добавляем ошибки у инпутов формы при ее открытии
+  checkInputFirstOpen() {
+    //кнопка сохранить | создать
+    const btnElem = this._form.querySelector(this._submitButtonSelector);
+    const inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+    inputList.forEach((input) => {
+      this._checkInputValidity(input);
+      this._toggleButtonState(inputList, btnElem)
+    })
+  }
+
   enableValidation() {
     this._form.addEventListener('submit', (evt) => evt.preventDefault);
     this._setEventListener();

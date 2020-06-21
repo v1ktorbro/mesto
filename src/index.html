@@ -50,9 +50,9 @@
     <form class="popap__container" novalidate>
       <span class="popap__close"></span>
       <h2 class="popap__title">Редактировать профиль</h2>
-      <input type="text" class="popap__input popap__input-name" id='name-input' required pattern="[A-Za-zА-Яа-я -]{2,40}" placeholder="Имя">
+      <input name="name" type="text" class="popap__input popap__input-name" id='name-input' required pattern="[A-Za-zА-Яа-я -]{2,40}" placeholder="Имя">
       <span class="popap__input-error" id="name-input-error"></span>
-      <input type="text" class="popap__input popap__input-signature" id='signature-input' required minlength='2' maxlength='200' placeholder="О себе">
+      <input name="description" type="text" class="popap__input popap__input-signature" id='signature-input' required minlength='2' maxlength='200' placeholder="О себе">
       <span class="popap__input-error" id="signature-input-error"></span>
       <button type="submit" class="popap__input-save">
         <p class="popap__text-color">Сохранить</p>

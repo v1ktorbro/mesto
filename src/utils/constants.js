@@ -1,7 +1,6 @@
 export {
   formObject, configFormPlus,
-  initialCards, overlayPopapImage,
-  popaps, btnEdit, btnPlus
+  initialCards, btnEdit, btnPlus
 };
 
 const formObject = {
@@ -55,7 +54,5 @@ const initialCards = [
   },
 ];
 
-const overlayPopapImage = document.querySelector(".popap-image"); //для оверлея
-const popaps = document.querySelectorAll('.popap');               //анологично^^^
 const btnEdit = document.querySelector(".profile__btn-edit"); //кнопка редактирования профиля
 const btnPlus = document.querySelector(".profile__btn-plus"); //кнопка создания новой карточки

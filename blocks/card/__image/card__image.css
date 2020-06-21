@@ -1,7 +1,7 @@
 .card__image {
   object-fit: cover;
   border-radius: 10px 10px 0 0;
-  width: 282px;
+  max-width: 282px;
   height: 282px;
   margin-bottom: 25px;
   transition: all 0.3s ease 0s;
@@ -21,8 +21,8 @@
 
 @media screen and (max-width: 520px) {
   .card__image {
-    max-width: 187px;
-    height: 187px;
+    max-width: 311px;
+    height: 290px;
   }
 }
 

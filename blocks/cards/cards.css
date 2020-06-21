@@ -22,17 +22,17 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 520px) {
   .cards {
-    max-width: 490px;
-    grid-gap: 10px;
+    max-width: 311px;
+    margin-top: 36px;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .cards {
-    margin-top: 36px;
-    grid-template-columns: 1fr;
     max-width: 282px;
     grid-row-gap: 20px;
   }
