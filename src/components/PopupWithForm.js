@@ -4,10 +4,7 @@ export class PopupWithForm extends Popup {
     super(popapSelector);
     this._handleFormSubmit = handleFormSubmit;
     this.formValidator = formValidator;
-    this._submitForm = (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    }
+    this._submitForm = this._submitForm.bind(this)
   };
 
   _getForm() {
@@ -26,6 +23,10 @@ export class PopupWithForm extends Popup {
       const form = this._popap.querySelector('.popap__container');
       form.reset();
     }
+  }
+  _submitForm(evt) {
+    evt.preventDefault();
+    this._handleFormSubmit(this._getInputValues());
   }
   _setEventListeners() {
     super._setEventListeners();
