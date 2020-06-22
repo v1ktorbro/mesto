@@ -2,9 +2,7 @@ import { Popup } from "./Popup.js";
 export class PopupWithImage extends Popup {
   constructor(popapSelector) {
     super(popapSelector);
-    this._overlayPopap = (evt) => {
-      if (evt.target.classList.contains('popap-image')) evt.target.classList.add('popap-image_closed');
-    };
+    this._overlayPopap = this._overlayPopap.bind(this);
     this._setEventListeners()
   }
 
@@ -16,6 +14,9 @@ export class PopupWithImage extends Popup {
   close() {
     this._popap.classList.add("popap-image_closed");
     document.removeEventListener('mousedown', this._overlayPopap)
+  }
+  _overlayPopap(evt) {
+    if (evt.target.classList.contains('popap-image')) evt.target.classList.add('popap-image_closed');
   }
   _setEventListeners() {
     const btnClose = this._popap.querySelector(".popap-image__close");
