@@ -2,6 +2,7 @@ export class Card {
   constructor(data, cardSelector, { handleCardClick }) {
     this._name = data.name;
     this._link = data.link;
+    this._countLike = data.likes;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._likeCard = this._likeCard.bind(this);
@@ -20,6 +21,9 @@ export class Card {
   createCard() {
     this._element = this._getTemplate();
     this._element.querySelector('.card__title').textContent = this._name;
+    //собираем массив лайкнувших
+    const countLike = Array.from(this._countLike);
+    this._element.querySelector('.card__count-like').textContent = countLike.length
     this._cardImage = this._element.querySelector('.card__image');
     this._cardImage.src = this._link;
     this._cardImage.alt = `Картинка ${this._name}`;
