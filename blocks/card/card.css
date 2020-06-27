@@ -1,4 +1,6 @@
+@import url(./__counnt-like/card__count-like.css);
 @import url(./__btn-like/card__btn-like.css);
+@import url(./__block-like/card__block-like.css);
 @import url(./__title/card__title.css);
 @import url(./__image/card__image.css);
 @import url(./__info/card__info.css);
