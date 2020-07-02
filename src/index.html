@@ -16,6 +16,7 @@
   <main class="content">
     <section class="profile">
       <img src="../images/zhak-iv-kusto.png" alt="Аватар" class="profile__avatar">
+      <span class="profile__edit-avatar"></span>
       <div class="profile__info">
         <div class="profile__change-elem">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -83,6 +84,26 @@
         <p class="popap-image__name"></p>
       </div>
     </section>
+  <section class="popap-delete popap popap_closed">
+   <form class="popap__container" novalidate>
+     <span class="popap__close"></span>
+     <h2 class="popap__title">Вы уверены?</h2>
+     <button type="submit" class="popap__input-save">
+       <p class="popap__text-color">Да</p>
+     </button>
+   </form>
+ </section>
+ <section class="popap-avatar popap popap_closed">
+  <form class="popap__container" novalidate>
+    <span class="popap__close"></span>
+    <h2 class="popap__title">Обновить аватар</h2>
+    <input name="avatar" type="url" class="popap__input popap__input-signature" id='signature-input' required placeholder="Ссылка на картинку">
+    <span class="popap__input-error" id="signature-input-error"></span>
+    <button type="submit" class="popap__input-save">
+      <p class="popap__text-color">Сохранить</p>
+    </button>
+  </form>
+</section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020. Абросимов Виктор</p>

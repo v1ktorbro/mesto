@@ -1,6 +1,7 @@
 export {
-  formObject, configFormPlus,
-  initialCards, btnEdit, btnPlus
+  formObject, configFormPlus, btnAvatar,
+  initialCards, btnEdit, btnPlus,
+  renderLoading
 };
 
 const formObject = {
@@ -56,3 +57,13 @@ const initialCards = [
 
 const btnEdit = document.querySelector(".profile__btn-edit"); //кнопка редактирования профиля
 const btnPlus = document.querySelector(".profile__btn-plus"); //кнопка создания новой карточки
+const btnAvatar = document.querySelector(".profile__avatar");
+const renderLoading = (isLoading, popapSelector, text) => {
+  const popap = document.querySelector(popapSelector)
+  const btnSave = popap.querySelector('.popap__text-color');
+  if(isLoading) {
+    btnSave.textContent = 'Сохранение...'
+  } else {
+    btnSave.textContent = text
+  }
+}
