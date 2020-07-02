@@ -1,0 +1,4 @@
+.card__block-like {
+  display: flex;
+  flex-direction: column;
+}
