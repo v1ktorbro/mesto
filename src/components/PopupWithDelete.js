@@ -1,18 +1,28 @@
 import { Popup } from "./Popup.js";
 export class PopupWithDelete extends Popup {
-  constructor( popapSelector, api ) {
+  constructor( popapSelector, {callBackFunc} ) {
     super(popapSelector);
-    this._form = this._popap.querySelector(".popap__container")
-    this._api = api
+    this._form = this._popap.querySelector(".popap__container");
+    this._callBackFunc = callBackFunc;
+    super._setEventListeners()
   }
 
-  open(cardId, el) {
+  open() {
     super.open()
-    this._form.addEventListener("submit", (evt) => {
+  }
+
+  close() {
+    super.close();
+    this._form.removeEventListener("submit", this.listener)
+  }
+
+  setSubmitAction(cardId, cardElem) {
+    this.listener = (evt) => {
       evt.preventDefault();
-      this._api.deleteCard(cardId, el);
-      this.close()
-    }, {once: true})
+      this._callBackFunc(cardId, cardElem);
+      this._form.removeEventListener("submit", this.listener)
+    }
+    this._form.addEventListener("submit", this.listener)
   }
 }
 
