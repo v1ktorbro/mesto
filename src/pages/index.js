@@ -8,9 +8,7 @@ import { PopupWithDelete } from "../components/PopupWithDelete.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from "../components/Api.js";
 import {
-  formObject, configFormPlus,
-  btnEdit, btnPlus, btnAvatar,
-  renderLoading
+  formObject, configFormPlus, renderLoading
 } from "../utils/constants.js";
 
 const api = new Api ({
@@ -20,42 +18,84 @@ const api = new Api ({
     'Content-Type': 'application/json'
   }
 })
-//подгружаем информацию с сервера о user
-api.getInfoUser().then(data => userInfo.setUserInfo(data));
-const popapImage = new PopupWithImage(".popap-image");
-const popapDelete = new PopupWithDelete(".popap-delete", api);
 
-//подгружаем карточки
-api.getInitialCards().then((initialCards)=>{
+const popapImage = new PopupWithImage(".popap-image");
+const popapDelete = new PopupWithDelete(".popap-delete" , {
+  callBackFunc: (cardId, cardElem) => {
+      api.deleteCard(cardId)
+      .then(res => {
+        if(res.ok) {
+          return cardElem.remove();
+        }
+        return Promise.reject(`Что-то не так с удалением карточки: ошибка ${res.status}`)
+      })
+      .finally(()=> popapDelete.close())
+      .catch(err => {
+        return console.log(err)
+      })
+}} )
+
+//готовим  карточки для рендера
   const defaultCardList = new Section(
-    { items: initialCards,
-      renderer: ((cardItem) => {
-        const card = new Card(cardItem,
+    { renderer: ((cardItem, userId) => {
+        const card = new Card(
+          cardItem,
           '#template-cards',
-          'd33696f46a2c40438bb49993',
+          userId,
           { handleCardClick: () => {
-            popapImage.open(cardItem.name, cardItem.link);
+            popapImage.open(cardItem.name, cardItem.link)
           },
             handleCardDelete: (cardId, cardElem) => {
-              popapDelete.open(cardId, cardElem)
+              popapDelete.open();
+              popapDelete.setSubmitAction(cardId, cardElem)
           },
             handleCardLike: (cardId, cardElem) => {
-              api.likeCard(cardId, cardElem)
-          }
+              const btnLike = cardElem.querySelector(".btn-image_like");
+              const likePlaceCount = cardElem.querySelector(".card__count-like");
+              if(!btnLike.classList.contains("btn-image_like_active")) {
+                api.putLikeCard(cardId)
+                .then((res) => {
+                  likePlaceCount.textContent = res.likes.length
+                  btnLike.classList.add("btn-image_like_active")
+                  return
+                })
+                .catch(err => {
+                 return console.log(err)
+               })
+              } else {
+                api.deleteLikeCard(cardId)
+                .then(res => {
+                  likePlaceCount.textContent = res.likes.length;
+                  btnLike.classList.remove("btn-image_like_active")
+                  return
+                })
+                .catch(err => {
+                 return console.log(err)
+               })
+              }
+            }
         });
         const cardElement = card.createCard();
-		  defaultCardList.addItem(cardElement);
+		    defaultCardList.addItem(cardElement);
       })
     },
-		".cards");
-		defaultCardList.renderItems()
+    ".cards");
+
+Promise.all([api.getInitialCards(), api.getInfoUser()])
+.then(([initialCards, userData]) => {
+  userInfo.setUserInfo(userData);
+  initialCards.reverse()
+  defaultCardList.renderItems(initialCards, userData._id)
+})
+.catch(err => {
+  return console.log(err)
 });
 
+const linkInputAvatar = document.querySelector(".popap-avatar").querySelector(".popap__input-signature") //инпут ссылки
+const btnAvatar = document.querySelector(".profile__avatar") //кнопка смены аватара
 btnAvatar.addEventListener("click", ()=> {
-  //при каждом открытии инпут формы принимает значение ссылку установленной картинки
-  const linkInput = document.querySelector(".popap-avatar").querySelector(".popap__input-signature");
   const info = userInfo.getUserInfo();
-  linkInput.value = info.avatar;
+  linkInputAvatar.value = info.avatar;
   submitFormAvatar.open()
 })
 
@@ -71,18 +111,22 @@ const submitFormAvatar = new PopupWithForm({
       renderLoading(false, ".popap-avatar", "Сохранить");
       submitFormAvatar.close()
     })
+    .catch(err => {
+      return console.log(err)
+    })
   }
 },
 validateAvatarPopap)
-submitFormAvatar.setForm();
+submitFormAvatar.setEventListeners();
 
 const userInfo = new UserInfo(".profile__name", ".profile__signature", ".profile__avatar");
+const btnEdit = document.querySelector(".profile__btn-edit"); //кнопка редактирования профиля
+const nameInputProfile = document.querySelector(".popap-edit").querySelector(".popap__input-name"); //инпут имени профиля
+const aboutInputProfile = document.querySelector(".popap-edit").querySelector(".popap__input-signature"); //инпут информации "о себе"
 btnEdit.addEventListener("click", ()=> {
   const info = userInfo.getUserInfo();
-  const nameInput = document.querySelector(".popap__input-name");
-  nameInput.value = info.name;
-  const descriptionInput = document.querySelector(".popap__input-signature");
-  descriptionInput.value = info.about;
+  nameInputProfile.value = info.name;
+  aboutInputProfile.value = info.about;
   submitFormEdit.open();
 });
 const validateEdtitPopap = new FormValidator(formObject, ".popap-edit");
@@ -98,11 +142,15 @@ const submitFormEdit = new PopupWithForm({
       renderLoading(false, ".popap-edit", "Сохранить");
       submitFormEdit.close()
     })
+    .catch(err => {
+      return console.log(err)
+    })
   }
 },
 validateEdtitPopap)
-submitFormEdit.setForm();
+submitFormEdit.setEventListeners()
 
+const btnPlus = document.querySelector(".profile__btn-plus"); //кнопка создания новой карточки
 btnPlus.addEventListener("click", ()=> {
   configFormPlus(".popap-place", formObject);
   submitFormPlus.open();
@@ -116,29 +164,55 @@ const submitFormPlus = new PopupWithForm({
   handleFormSubmit: (formData) => {
     renderLoading(true, ".popap-place", "Создать")
     api.addCard(formData).then(newCard => {
-    const card = new Card(newCard,
+    const card = new Card(
+      newCard,
       '#template-cards',
-      'd33696f46a2c40438bb49993',
+      newCard.owner._id,
       { handleCardClick: () => {
-        popapImage.open(newCard.name, newCard.link);
+          popapImage.open(newCard.name, newCard.link);
         },
         handleCardDelete: (cardId, cardElem) => {
-          popapDelete.open(cardId, cardElem)
+          popapDelete.open();
+          popapDelete.setSubmitAction(cardId, cardElem)
         },
         handleCardLike: (cardId, cardElem) => {
-          api.likeCard(cardId, cardElem)
+          const btnLike = cardElem.querySelector(".btn-image_like");
+          const likePlaceCount = cardElem.querySelector(".card__count-like");
+          if(!btnLike.classList.contains("btn-image_like_active")) {
+            api.putLikeCard(cardId)
+            .then((res) => {
+              likePlaceCount.textContent = res.likes.length
+              btnLike.classList.add("btn-image_like_active")
+              return
+            })
+            .catch(err => {
+             return console.log(err)
+           })
+          } else {
+            api.deleteLikeCard(cardId)
+            .then(res => {
+              likePlaceCount.textContent = res.likes.length;
+              btnLike.classList.remove("btn-image_like_active")
+              return
+            })
+            .catch(err => {
+             return console.log(err)
+           })
+          }
         }
       });
     const cardElement = card.createCard();
-    const sectionCard = document.querySelector('.cards');
-    sectionCard.prepend(cardElement)
+    defaultCardList.addItem(cardElement)
   })
     .finally(()=> {
-    renderLoading(false, ".popap-place", "Создать");
-    submitFormPlus.close()
-  })
+      renderLoading(false, ".popap-place", "Создать");
+      submitFormPlus.close()
+    })
+    .catch(err => {
+      return console.log(err)
+    })
   }
 },
 validatePlusPopap)
-submitFormPlus.setForm();
+submitFormPlus.setEventListeners();
 

@@ -39,22 +39,15 @@ export class Card {
     this._setEventListeners();
     return this._element;
   }
-    _likeCard() {
-      //this._btnLike.classList.toggle('btn-image_like_active')
-      this._handleCardLike(this._cardId, this._element)
-    }
-    _deleteCard() {
-      this._handleCardDelete(this._cardId, this._element);
-      //this._removeEventListeners()
-    }
+  _likeCard() {
+    this._handleCardLike(this._cardId, this._element)
+  }
+  _deleteCard() {
+    this._handleCardDelete(this._cardId, this._element);
+  }
   _setEventListeners() {
     this._cardImage.addEventListener('click', this._handleCardClick);
     this._btnLike.addEventListener('click', this._likeCard);
     this._btnDelete.addEventListener('click', this._deleteCard);
-  }
-  _removeEventListeners() {
-    this._cardImage.removeEventListener('click', this._handleCardClick);
-    this._btnLike.removeEventListener('click', this._likeCard);
-    this._btnDelete.removeEventListener('click', this._deleteCard)
   }
 };

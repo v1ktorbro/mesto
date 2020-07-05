@@ -6,7 +6,8 @@ export class Popup {
   }
   open() {
     this._popap.classList.remove("popap_closed");
-    this._setEventListeners()
+    document.addEventListener("keydown", this._handleEscClose);
+    document.addEventListener('mousedown', this._overlayPopap)
   }
   close() {
     this._popap.classList.add("popap_closed");
@@ -17,12 +18,10 @@ export class Popup {
     if (evt.key === 'Escape') this.close()
   }
   _overlayPopap(evt) {
-    if (evt.target.classList.contains('popap')) evt.target.classList.add('popap_closed')
+    if (evt.target.classList.contains('popap')) this.close()
   }
   _setEventListeners() {
     const btnClose = this._popap.querySelector(".popap__close");
     btnClose.addEventListener("click", ()=> this.close());
-    document.addEventListener("keydown", this._handleEscClose);
-    document.addEventListener('mousedown', this._overlayPopap)
   }
 }
