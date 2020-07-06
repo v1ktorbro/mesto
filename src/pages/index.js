@@ -20,20 +20,9 @@ const api = new Api ({
 })
 
 const popapImage = new PopupWithImage(".popap-image");
-const popapDelete = new PopupWithDelete(".popap-delete" , {
-  callBackFunc: (cardId, cardElem) => {
-      api.deleteCard(cardId)
-      .then(res => {
-        if(res.ok) {
-          return cardElem.remove();
-        }
-        return Promise.reject(`Что-то не так с удалением карточки: ошибка ${res.status}`)
-      })
-      .finally(()=> popapDelete.close())
-      .catch(err => {
-        return console.log(err)
-      })
-}} )
+popapImage.setEventListeners()
+const popapDelete = new PopupWithDelete(".popap-delete")
+popapDelete.setEventListeners()
 
 //готовим  карточки для рендера
   const defaultCardList = new Section(
@@ -47,7 +36,23 @@ const popapDelete = new PopupWithDelete(".popap-delete" , {
           },
             handleCardDelete: (cardId, cardElem) => {
               popapDelete.open();
-              popapDelete.setSubmitAction(cardId, cardElem)
+              popapDelete.setSubmitAction(() => {
+                renderLoading(true, ".popap-delete", "Да")
+                api.deleteCard(cardId)
+                    .then(res => {
+                        if(res.ok) {
+                            return cardElem.remove();
+                        }
+                        return Promise.reject(`Что-то не так с удалением карточки: ошибка ${res.status}`)
+                    })
+                    .finally(()=> {
+                      popapDelete.close();
+                    })
+                    .catch(err => {
+                        renderLoading(false, ".popap-delete", "Да")
+                        return console.log(err)
+                    })
+            })
           },
             handleCardLike: (cardId, cardElem) => {
               const btnLike = cardElem.querySelector(".btn-image_like");
@@ -61,8 +66,7 @@ const popapDelete = new PopupWithDelete(".popap-delete" , {
                 })
                 .catch(err => {
                  return console.log(err)
-               })
-              } else {
+               }) } else {
                 api.deleteLikeCard(cardId)
                 .then(res => {
                   likePlaceCount.textContent = res.likes.length;
@@ -173,7 +177,23 @@ const submitFormPlus = new PopupWithForm({
         },
         handleCardDelete: (cardId, cardElem) => {
           popapDelete.open();
-          popapDelete.setSubmitAction(cardId, cardElem)
+          popapDelete.setSubmitAction(() => {
+            renderLoading(true, ".popap-delete", "Да")
+            api.deleteCard(cardId)
+                .then(res => {
+                    if(res.ok) {
+                        return cardElem.remove();
+                    }
+                    return Promise.reject(`Что-то не так с удалением карточки: ошибка ${res.status}`)
+                })
+                .finally(()=> {
+                  popapDelete.close();
+                })
+                .catch(err => {
+                    renderLoading(false, ".popap-delete", "Да")
+                    return console.log(err)
+                })
+        })
         },
         handleCardLike: (cardId, cardElem) => {
           const btnLike = cardElem.querySelector(".btn-image_like");
@@ -187,8 +207,7 @@ const submitFormPlus = new PopupWithForm({
             })
             .catch(err => {
              return console.log(err)
-           })
-          } else {
+           }) } else {
             api.deleteLikeCard(cardId)
             .then(res => {
               likePlaceCount.textContent = res.likes.length;
