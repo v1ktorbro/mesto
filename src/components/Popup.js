@@ -20,7 +20,7 @@ export class Popup {
   _overlayPopap(evt) {
     if (evt.target.classList.contains('popap')) this.close()
   }
-  _setEventListeners() {
+  setEventListeners() {
     const btnClose = this._popap.querySelector(".popap__close");
     btnClose.addEventListener("click", ()=> this.close());
   }
