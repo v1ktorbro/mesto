@@ -1,4 +1,4 @@
-# Проект 4: [Место Russia](https://v1ktorbro.github.io/mesto/)
+# Проект [Место Russia](https://v1ktorbro.github.io/mesto/)
 
 **О проеке**
 
