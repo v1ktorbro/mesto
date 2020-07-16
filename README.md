@@ -1,4 +1,4 @@
-# [Место Russia](https://v1ktorbro.github.io/mesto/)
+# [Место Russia](https://v1ktorbro.github.io/mesto/index.html)
 
 ## Файловая структура
 Данный проект был собран при помощи "Webpack". 
