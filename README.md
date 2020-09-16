@@ -1,4 +1,4 @@
-# [Место Russia auth](https://v1ktorbro.github.io/mesto/index.html)
+# [Место Russia](https://v1ktorbro.github.io/mesto/index.html)
 
 ## Используемый стэк :
 
