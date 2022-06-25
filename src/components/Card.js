@@ -11,22 +11,23 @@ export class Card {
     this._handleCardDelete = handleCardDelete;
     this._handleCardLike= handleCardLike;
     this._likeCard = this._likeCard.bind(this);
-    this._deleteCard = this._deleteCard.bind(this)
-  }
+    this._deleteCard = this._deleteCard.bind(this);
+  };
+
   _getTemplate() {
     const sectionCards = document.querySelector(".cards");
-    const cardElement = sectionCards
-    .querySelector(this._cardSelector)
-    .content
-    .querySelector('.card')
-    .cloneNode(true);
-    return cardElement
-  }
+    const cardElement = sectionCards.
+      querySelector(this._cardSelector).
+      content.
+      querySelector('.card').
+      cloneNode(true);
+    return cardElement;
+  };
 
   createCard() {
     this._element = this._getTemplate();
     this._element.querySelector('.card__title').textContent = this._name;
-    this._element.querySelector('.card__count-like').textContent = this._like.length
+    this._element.querySelector('.card__count-like').textContent = this._like.length;
     this._cardImage = this._element.querySelector('.card__image');
     this._cardImage.src = this._link;
     this._cardImage.alt = `Картинка ${this._name}`;
@@ -38,16 +39,19 @@ export class Card {
     }
     this._setEventListeners();
     return this._element;
-  }
+  };
+
   _likeCard() {
     this._handleCardLike(this._cardId, this._element)
-  }
+  };
+
   _deleteCard() {
     this._handleCardDelete(this._cardId, this._element);
-  }
+  };
+
   _setEventListeners() {
     this._cardImage.addEventListener('click', this._handleCardClick);
     this._btnLike.addEventListener('click', this._likeCard);
     this._btnDelete.addEventListener('click', this._deleteCard);
-  }
+  };
 };
